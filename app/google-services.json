@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "60730855390",
+    "firebase_url": "https://newsapp-67300.firebaseio.com",
+    "project_id": "newsapp-67300",
+    "storage_bucket": "newsapp-67300.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60730855390:android:94f3bcd878653c28ba974f",
+        "android_client_info": {
+          "package_name": "com.arshiya.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60730855390-2125balgso4t37ipoe0q1ui5t3km78up.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arshiya.newsapp",
+            "certificate_hash": "3677aaff08c8fc15ade24abb078c544a43f212dd"
+          }
+        },
+        {
+          "client_id": "60730855390-v5j4tihrrfneit55dg79g0cr05vodvdr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqX3HQ8QVJI-2VVUR3LwcI-v0nQtPJlKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60730855390-v5j4tihrrfneit55dg79g0cr05vodvdr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

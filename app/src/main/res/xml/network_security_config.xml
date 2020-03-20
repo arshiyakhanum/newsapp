@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">techcrunch.com</domain>
+        <domain includeSubdomains="true">s.yimg.com</domain>
+        <domain includeSubdomains="true">images.wsj.net</domain>
+        <domain includeSubdomains="true">blogs.wsj.com</domain>
+        <domain includeSubdomains="true">m.wsj.net</domain>
+        <domain includeSubdomains="true">si.wsj.net</domain>
+        <domain includeSubdomains="true">s.marketwatch.com</domain>
+        <domain includeSubdomains="true">cdn.cnn.com</domain>
+        <domain includeSubdomains="true">i.ytimg.com</domain>
+        <domain includeSubdomains="true">o.aolcdn.com</domain>
+        <domain includeSubdomains="true">image.cnbcfm.com</domain>
+        <domain includeSubdomains="true">images.markets.businessinsider.com</domain>
+        <domain includeSubdomains="true">cdn.vox-cdn.com</domain>
+</domain-config>
+    </network-security-config>
