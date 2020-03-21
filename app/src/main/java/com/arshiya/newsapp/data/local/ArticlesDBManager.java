@@ -60,6 +60,15 @@ public class ArticlesDBManager {
         return uri;
     }
 
+    public int deleteArticle(Article article) {
+        String where = URL + " =? ";
+
+        String[] whereArgs = new String[] {article.getUrl()};
+
+        return mContentResolver.delete(ArticleEntity.getContentUri(NewsApplication.getInstance().getApplicationContext()),
+                where, whereArgs);
+    }
+
     public ArrayList<Article> fetchArticles() {
         ArrayList<Article> articles = new ArrayList<>();
         Cursor cursor = mContentResolver.query(ArticleEntity.getContentUri(NewsApplication.getInstance().getApplicationContext()),

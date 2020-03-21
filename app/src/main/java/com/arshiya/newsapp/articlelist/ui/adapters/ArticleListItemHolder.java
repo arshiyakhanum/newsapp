@@ -92,7 +92,7 @@ public class ArticleListItemHolder extends RecyclerView.ViewHolder {
         mSource.setText(mArticle.getSourceName());
         mPublishedAt.setText(mArticle.getDisplayTime());
 
-        mBtnSaveArticle.setText(mArticle.isSaved()? "Saved": "Save");
+        mBtnSaveArticle.setText(mArticle.isSaved()? "Remove": "Save");
     }
 
     @OnClick({R.id.bt_save_article, R.id.tv_headline})

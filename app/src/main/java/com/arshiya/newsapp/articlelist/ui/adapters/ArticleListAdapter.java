@@ -37,6 +37,11 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListItemHold
         notifyDataSetChanged();
     }
 
+    public void updateArticle(int position, boolean isSaved) {
+        mArticleDAOList.get(position).setSaved(isSaved);
+        notifyDataSetChanged();
+    }
+
     public void refreshList(List<Article> articles) {
         mArticleDAOList = new ArrayList<>();
         addArticles(articles);

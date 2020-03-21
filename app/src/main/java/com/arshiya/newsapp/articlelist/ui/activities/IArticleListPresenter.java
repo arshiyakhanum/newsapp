@@ -42,9 +42,23 @@ public interface IArticleListPresenter {
      */
     interface EventCallback {
 
+        /**
+         * Invoked when load article task is complete
+         * @param articleList - list of {@link Article}
+         */
         void onArticlesLoadComplete(List<Article> articleList);
 
-        void onSaveArticleSuccess( int position);
+        /**
+         * invoked when save article task complete
+         * @param position item position
+         */
+        void onSaveArticleComplete(int position);
+
+        /**
+         * invoked when save article task complete
+         * @param position item position
+         */
+        void onDeleteArticleComplete(int position);
 
     }
 }

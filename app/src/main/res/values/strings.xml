@@ -8,5 +8,7 @@
     <string name="article_save_fail">Couldn\'t save article</string>
     <string name="channel_description">New article</string>
     <string name="channel_name">New article</string>
+    <string name="insert_success">Article saved</string>
+    <string name="insert_fail">Something went wrong!</string>
 
 </resources>

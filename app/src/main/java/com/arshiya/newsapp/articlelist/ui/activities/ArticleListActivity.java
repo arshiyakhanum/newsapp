@@ -96,8 +96,13 @@ public class ArticleListActivity extends AppCompatActivity implements IArticleLi
     }
 
     @Override
-    public void onSaveArticleSuccess(int position) {
-        mArticleListAdapter.notifyItemChanged(position);
+    public void onSaveArticleComplete(int position) {
+        mArticleListAdapter.updateArticle(position, true);
+    }
+
+    @Override
+    public void onDeleteArticleComplete(int position) {
+        mArticleListAdapter.updateArticle(position, false);
     }
 
     @Override
