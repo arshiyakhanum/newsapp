@@ -8,5 +8,7 @@
     <color name="secondaryTextColor">#6F6F6F</color>
     <color name="gray">#575757</color>
     <color name="background">#F6FBFC</color>
+    <color name="red_light">#FB9191</color>
+    <color name="red_dark">#8A0000</color>
 
 </resources>

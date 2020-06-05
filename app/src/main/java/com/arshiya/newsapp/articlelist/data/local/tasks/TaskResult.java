@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.data.local.tasks;
+package com.arshiya.newsapp.articlelist.data.local.tasks;
 
 /**
  * Created by Arshiya on 2020-03-21.

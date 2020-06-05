@@ -20,8 +20,8 @@ import static com.arshiya.newsapp.articlelist.domain.ArticleConstants.KEY_PUBLIS
 import static com.arshiya.newsapp.articlelist.domain.ArticleConstants.KEY_TITLE;
 import static com.arshiya.newsapp.articlelist.domain.ArticleConstants.KEY_URL;
 import static com.arshiya.newsapp.articlelist.domain.ArticleConstants.KEY_URL_TO_IMAGE;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.SOURCE_ID;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.SOURCE_NAME;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.SOURCE_ID;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.SOURCE_NAME;
 
 /**
  * POJO class to generate JAVA class from JSONObject

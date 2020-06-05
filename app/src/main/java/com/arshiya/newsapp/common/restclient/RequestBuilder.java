@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.articlelist.common.restclient;
+package com.arshiya.newsapp.common.restclient;
 
 import android.net.Uri;
 

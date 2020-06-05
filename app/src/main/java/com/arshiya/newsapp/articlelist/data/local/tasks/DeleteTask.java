@@ -1,11 +1,11 @@
-package com.arshiya.newsapp.data.local.tasks;
+package com.arshiya.newsapp.articlelist.data.local.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
 import com.arshiya.newsapp.R;
 import com.arshiya.newsapp.articlelist.domain.Article;
-import com.arshiya.newsapp.data.local.ArticlesDBManager;
+import com.arshiya.newsapp.articlelist.data.local.ArticlesDBManager;
 
 /**
  * task to unsave Article
@@ -19,25 +19,34 @@ public class DeleteTask extends AsyncTask<Object, Void, TaskResult> {
 
     private ITaskCompleteListener mITaskCompleteListener;
 
+    private TaskType mTaskType;
+
     private DeleteTask() {}
 
-    public DeleteTask(Context context, ITaskCompleteListener taskCompletListener) {
+    public DeleteTask(Context context, ITaskCompleteListener taskCompletListener, TaskType taskType) {
         mContext = context;
         mITaskCompleteListener = taskCompletListener;
+        mTaskType = taskType;
     }
 
     @Override
     protected TaskResult doInBackground(Object... objects) {
         TaskResult taskResult = null;
 
-        if (objects[0] != null) {
-            ArticlesDBManager dbManager = new ArticlesDBManager(mContext);
-            int result = dbManager.deleteArticle((Article)objects[0]);
-
-            if (result != -1) {
-                taskResult = new TaskResult(TaskResult.RESULT.SUCCESS, mContext.getString(R.string.insert_success),
-                        objects[0], (Integer) objects[1]);
+        ArticlesDBManager dbManager = new ArticlesDBManager(mContext);
+        int result = -1;
+        if (mTaskType == TaskType.DELETE_ARTICLE) {
+            if (objects[0] != null) {
+                result = dbManager.deleteArticle((Article) objects[0]);
             }
+        } else {
+            result = dbManager.clearArticles();
+        }
+
+
+        if (result != -1) {
+            taskResult = new TaskResult(TaskResult.RESULT.SUCCESS, mContext.getString(R.string.delete_success),
+                    objects[0], (Integer) objects[1]);
         }
 
         if (taskResult == null) {
@@ -50,9 +59,8 @@ public class DeleteTask extends AsyncTask<Object, Void, TaskResult> {
     @Override
     protected void onPostExecute(TaskResult taskResult) {
         super.onPostExecute(taskResult);
-
-        if (mITaskCompleteListener != null) {
-            mITaskCompleteListener.onTaskComplete(taskResult, TaskType.DELETE);
+        if (mITaskCompleteListener != null && mTaskType == TaskType.DELETE_ARTICLE) {
+            mITaskCompleteListener.onTaskComplete(taskResult, TaskType.DELETE_ARTICLE);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.articlelist.common.restclient.exceptions;
+package com.arshiya.newsapp.common.restclient.exceptions;
 
 import java.io.UnsupportedEncodingException;
 

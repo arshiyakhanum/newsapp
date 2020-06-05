@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.data.local;
+package com.arshiya.newsapp.articlelist.data.local;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -13,17 +13,17 @@ import com.arshiya.newsapp.utils.Logger;
 
 import java.util.ArrayList;
 
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.ArticleEntity;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.AUTHOR;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.CONTENT;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.DESCRIPTION;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.IS_SAVED;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.SOURCE_ID;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.SOURCE_NAME;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.TIMESTAMP;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.TITLE;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.URL;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.Columns.URL_TO_IMAGE;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.ArticleEntity;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.AUTHOR;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.CONTENT;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.DESCRIPTION;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.IS_SAVED;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.SOURCE_ID;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.SOURCE_NAME;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.TIMESTAMP;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.TITLE;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.URL;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.Columns.URL_TO_IMAGE;
 
 /**
  * Created by Arshiya on 2020-03-20.
@@ -67,6 +67,10 @@ public class ArticlesDBManager {
 
         return mContentResolver.delete(ArticleEntity.getContentUri(NewsApplication.getInstance().getApplicationContext()),
                 where, whereArgs);
+    }
+
+    public int clearArticles() {
+        return mContentResolver.delete(ArticleEntity.getContentUri(NewsApplication.getInstance().getApplicationContext()), null, null);
     }
 
     public ArrayList<Article> fetchArticles() {

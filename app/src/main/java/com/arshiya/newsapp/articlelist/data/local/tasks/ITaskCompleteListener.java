@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.data.local.tasks;
+package com.arshiya.newsapp.articlelist.data.local.tasks;
 
 /**
  * Interface definition for a callback to be invoked when task is completed

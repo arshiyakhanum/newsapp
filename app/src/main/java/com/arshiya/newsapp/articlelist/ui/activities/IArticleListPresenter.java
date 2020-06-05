@@ -1,5 +1,7 @@
 package com.arshiya.newsapp.articlelist.ui.activities;
 
+import android.content.Context;
+
 import com.arshiya.newsapp.articlelist.domain.Article;
 
 import java.util.HashMap;
@@ -36,6 +38,8 @@ public interface IArticleListPresenter {
      * @param position - Position of the article in article list
      */
     void saveArticle(Article article, int position);
+
+    void logOut(Context context);
 
     /**
      * interface to notify and handle store and retrieve task completion

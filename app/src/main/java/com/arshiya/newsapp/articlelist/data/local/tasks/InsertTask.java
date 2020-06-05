@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.data.local.tasks;
+package com.arshiya.newsapp.articlelist.data.local.tasks;
 
 import android.content.Context;
 import android.net.Uri;
@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 
 import com.arshiya.newsapp.R;
 import com.arshiya.newsapp.articlelist.domain.Article;
-import com.arshiya.newsapp.data.local.ArticlesDBManager;
+import com.arshiya.newsapp.articlelist.data.local.ArticlesDBManager;
 
 /**
  * Task to save Article

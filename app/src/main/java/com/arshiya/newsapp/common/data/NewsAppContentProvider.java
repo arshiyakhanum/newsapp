@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.data.local;
+package com.arshiya.newsapp.common.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -12,20 +12,22 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract;
+
 import java.util.HashMap;
 
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.ArticleEntity;
-import static com.arshiya.newsapp.data.local.ArticlesDataContract.getAuthority;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.ArticleEntity;
+import static com.arshiya.newsapp.articlelist.data.local.ArticlesDataContract.getAuthority;
 
 /**
  * Created by Arshiya on 2020-03-18.
  */
-public class ArticlesContentProvider extends ContentProvider {
+public class NewsAppContentProvider extends ContentProvider {
 
-    private static final String TAG = ArticlesContentProvider.class.getSimpleName();
+    private static final String TAG = NewsAppContentProvider.class.getSimpleName();
 
     private UriMatcher mUriMatcher;
-    private ArticlesDatabaseHelper mArticlesOpenHelper;
+    private NewsAppDatabaseHelper mArticlesOpenHelper;
 
 
     /**
@@ -48,6 +50,7 @@ public class ArticlesContentProvider extends ContentProvider {
         sArticlesProjectionMap.put(ArticleEntity.TIMESTAMP, ArticleEntity.TIMESTAMP);
         sArticlesProjectionMap.put(ArticleEntity.CONTENT, ArticleEntity.CONTENT);
         sArticlesProjectionMap.put(ArticleEntity.IS_SAVED, ArticleEntity.IS_SAVED);
+
     }
 
     private void initialize() {
@@ -57,7 +60,7 @@ public class ArticlesContentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        mArticlesOpenHelper = new ArticlesDatabaseHelper(getContext());
+        mArticlesOpenHelper = new NewsAppDatabaseHelper(getContext());
         initialize();
         return true;
     }
@@ -70,7 +73,7 @@ public class ArticlesContentProvider extends ContentProvider {
         String limit = uri.getQueryParameter(ArticlesDataContract.QUERY_PARAMETER_LIMIT);
         if (mUriMatcher.match(uri) == ARTICLES){
                 qb.setProjectionMap(sArticlesProjectionMap);
-                qb.setTables(ArticlesDatabaseHelper.TABLE_NAME_ARTICLES);
+                qb.setTables(NewsAppDatabaseHelper.TABLE_NAME_ARTICLES);
         }
         Cursor cursor = qb.query(db, projection, selection, selectionArgs, null, null, limit);
         return cursor;    }
@@ -96,7 +99,7 @@ public class ArticlesContentProvider extends ContentProvider {
         SQLiteDatabase db = mArticlesOpenHelper.getReadableDatabase();
         switch (mUriMatcher.match(uri)) {
             case ARTICLES:
-                rowId = db.insert(ArticlesDatabaseHelper.TABLE_NAME_ARTICLES, null, values);
+                rowId = db.insert(NewsAppDatabaseHelper.TABLE_NAME_ARTICLES, null, values);
                 if (rowId > 0) {
                     newUri = ContentUris.withAppendedId(ArticleEntity.getContentUri(getContext()), rowId);
                 }
@@ -112,7 +115,7 @@ public class ArticlesContentProvider extends ContentProvider {
         SQLiteDatabase db = mArticlesOpenHelper.getReadableDatabase();
         int count = 0;
         if  (mUriMatcher.match(uri) == ARTICLES) {
-            count = db.delete(ArticlesDatabaseHelper.TABLE_NAME_ARTICLES, selection, selectionArgs);
+            count = db.delete(NewsAppDatabaseHelper.TABLE_NAME_ARTICLES, selection, selectionArgs);
         }
         return count;
     }
@@ -122,7 +125,7 @@ public class ArticlesContentProvider extends ContentProvider {
         SQLiteDatabase db = mArticlesOpenHelper.getReadableDatabase();
         int count = 0;
         if (mUriMatcher.match(uri) == ARTICLES) {
-            count = db.update(ArticlesDatabaseHelper.TABLE_NAME_ARTICLES, values, selection, selectionArgs);
+            count = db.update(NewsAppDatabaseHelper.TABLE_NAME_ARTICLES, values, selection, selectionArgs);
         }
 
         return count;

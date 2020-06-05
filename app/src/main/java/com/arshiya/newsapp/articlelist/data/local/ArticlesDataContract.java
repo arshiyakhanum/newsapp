@@ -1,4 +1,4 @@
-package com.arshiya.newsapp.data.local;
+package com.arshiya.newsapp.articlelist.data.local;
 
 import android.content.Context;
 import android.net.Uri;
@@ -33,7 +33,7 @@ public class ArticlesDataContract {
          * @param context application context
          * @return content uri of Article table
          */
-        public static Uri getContentUri(Context context) {
+        public static Uri   getContentUri(Context context) {
             return Uri.parse("content://" + getAuthority(context) + "/articlestable");
         }
 

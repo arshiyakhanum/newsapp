@@ -3,10 +3,10 @@ package com.arshiya.newsapp.articlelist.ui.task;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import com.arshiya.newsapp.articlelist.common.restclient.Request;
-import com.arshiya.newsapp.articlelist.common.restclient.RequestBuilder;
-import com.arshiya.newsapp.articlelist.common.restclient.Response;
-import com.arshiya.newsapp.articlelist.common.restclient.RestClient;
+import com.arshiya.newsapp.common.restclient.Request;
+import com.arshiya.newsapp.common.restclient.RequestBuilder;
+import com.arshiya.newsapp.common.restclient.Response;
+import com.arshiya.newsapp.common.restclient.RestClient;
 import com.arshiya.newsapp.articlelist.domain.Article;
 import com.arshiya.newsapp.articlelist.parser.ArticlesParser;
 
