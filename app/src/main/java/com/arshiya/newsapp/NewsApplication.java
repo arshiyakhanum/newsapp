@@ -41,7 +41,7 @@ public class NewsApplication extends Application implements LifecycleObserver, A
                         .setNotificationSmallIcon(R.drawable.ic_stat_dvr)
                         .setNotificationLargeIcon(R.drawable.ic_launcher)
                         .optOutTokenRegistration()
-                        .setLogLevel(Logger.VERBOSE)
+                        .setLogLevel(com.moengage.core.Logger.VERBOSE)
                         .build();
 
         MoEngage.initialise(moEngage);
